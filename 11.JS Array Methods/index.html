@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 11 JS Array Methods</title>
+    <style>
+        /* CSS: Day 11 styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5dc; /* Beige background */
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            background-color: #fffacd; /* Light yellow box */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #f0e68c;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Day 11: JS Array Methods</h1>
+
+    <!-- Output section -->
+    <div class="output" id="jsOutput">Click the button to see Array Methods in action!</div>
+
+    <button id="arrayBtn">Run Array Methods</button>
+
+    <script>
+        // ======= Day 11 JS =======
+
+        // 1. Declare an array of numbers
+        const numbers = [1, 2, 3, 4, 5];
+
+        // 2. Select output div and button
+        const outputDiv = document.getElementById("jsOutput");
+        const arrayBtn = document.getElementById("arrayBtn");
+
+        // 3. Function to demonstrate map, filter, reduce
+        const runArrayMethods = () => {
+
+            // Map: multiply each number by 2
+            const doubled = numbers.map(num => num * 2);
+
+            // Filter: keep only numbers greater than 2
+            const filtered = numbers.filter(num => num > 2);
+
+            // Reduce: sum all numbers
+            const total = numbers.reduce((acc, num) => acc + num, 0);
+
+            // Combine output for webpage
+            const output = 
+                "Original Numbers: " + numbers + "<br><br>" +
+                "Doubled (map): " + doubled + "<br>" +
+                "Filtered >2 (filter): " + filtered + "<br>" +
+                "Sum of all numbers (reduce): " + total;
+
+            // Display on webpage
+            outputDiv.innerHTML = output;
+
+            // Console debugging
+            console.log("Original:", numbers);
+            console.log("Doubled:", doubled);
+            console.log("Filtered:", filtered);
+            console.log("Total:", total);
+        };
+
+        // 4. Button click event to run array methods
+        arrayBtn.addEventListener("click", runArrayMethods);
+
+    </script>
+
+</body>
+</html>
