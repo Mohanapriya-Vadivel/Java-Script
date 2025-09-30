@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9 JS Events</title>
+    <style>
+        /* CSS: Day 9 styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0fff0; /* Honeydew background */
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            background-color: #e6ffe6; /* Light green box */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #b3ffb3;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        input {
+            padding: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Day 9: JavaScript Events</h1>
+
+    <!-- Output section -->
+    <div class="output" id="jsOutput">Interact with buttons and input below!</div>
+
+    <!-- Buttons -->
+    <button id="clickBtn">Click Me</button>
+    <button id="hoverBtn">Hover Over Me</button>
+
+    <!-- Input -->
+    <input type="text" id="inputBox" placeholder="Type something...">
+
+    <script>
+        // ======= Day 9 JS =======
+
+        // 1. Get elements by ID
+        let outputDiv = document.getElementById("jsOutput");
+        let clickBtn = document.getElementById("clickBtn");
+        let hoverBtn = document.getElementById("hoverBtn");
+        let inputBox = document.getElementById("inputBox");
+
+        // 2. Click event
+        clickBtn.addEventListener("click", function() {
+            outputDiv.innerHTML = "You clicked the button!";
+            console.log("Click event triggered");
+        });
+
+        // 3. Mouseover event
+        hoverBtn.addEventListener("mouseover", function() {
+            outputDiv.innerHTML = "Mouse is over the button!";
+            console.log("Mouseover event triggered");
+        });
+
+        // 4. Input event
+        inputBox.addEventListener("input", function() {
+            outputDiv.innerHTML = "You typed: " + inputBox.value;
+            console.log("Input event value:", inputBox.value);
+        });
+
+        // 5. Mouseout event (optional)
+        hoverBtn.addEventListener("mouseout", function() {
+            outputDiv.innerHTML = "Mouse left the button!";
+            console.log("Mouseout event triggered");
+        });
+
+    </script>
+
+</body>
+</html>
