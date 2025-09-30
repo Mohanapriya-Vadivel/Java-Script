@@ -42,4 +42,31 @@
         if (marks >= 90) {
             grade = "A+";
         } else if (marks >= 75) {
-            gr
+            grade = "A";
+        } else if (marks >= 60) {
+            grade = "B";
+        } else {
+            grade = "C";
+        }
+
+        // 3. Ternary operator: short form of if-else
+        let result = marks >= 75 ? "Pass" : "Fail";
+        // condition ? value_if_true : value_if_false
+
+        // 4. Combine results for webpage output
+        let output = "Marks: " + marks + "<br>" +
+                     "Grade: " + grade + "<br>" +
+                     "Result: " + result;
+
+        // 5. Display output on webpage
+        document.getElementById("jsOutput").innerHTML = output;
+
+        // 6. Console output for practice
+        console.log("Marks:", marks);
+        console.log("Grade:", grade);
+        console.log("Result:", result);
+
+    </script>
+
+</body>
+</html>
