@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 18 JS Error Handling</title>
+    <style>
+        /* CSS: Day 18 styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fffaf0; /* Floral white background */
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            background-color: #fff0d9; /* Light orange box */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ffd9b3;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        input {
+            margin-top: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Day 18: JS Error Handling</h1>
+
+    <!-- Input and Output -->
+    <input type="text" id="numberInput" placeholder="Enter a number">
+    <button id="errorBtn">Validate Number</button>
+
+    <div class="output" id="jsOutput">Enter a number and click the button!</div>
+
+    <script>
+        // ======= Day 18 JS =======
+
+        const outputDiv = document.getElementById("jsOutput");
+        const numberInput = document.getElementById("numberInput");
+        const errorBtn = document.getElementById("errorBtn");
+
+        // 1. Function to validate input
+        const validateNumber = () => {
+            try {
+                const value = numberInput.value;
+
+                // Throw error if input is empty
+                if(value === "") throw "Input cannot be empty!";
+
+                // Throw error if input is not a number
+                const number = Number(value);
+                if(isNaN(number)) throw "Input is not a valid number!";
+
+                // Throw error if number is negative
+                if(number < 0) throw "Number must be positive!";
+
+                // If all checks pass
+                outputDiv.innerHTML = `Valid number entered: ${number}`;
+                console.log("Valid number:", number);
+
+            } catch(error) {
+                // Catch and display errors
+                outputDiv.innerHTML = `Error: ${error}`;
+                console.log("Error caught:", error);
+            }
+        };
+
+        // 2. Button click event
+        errorBtn.addEventListener("click", validateNumber);
+
+    </script>
+
+</body>
+</html>
