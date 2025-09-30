@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 19 JS Local Storage</title>
+    <style>
+        /* CSS: Day 19 styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0fff0; /* Honeydew background */
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            background-color: #e6ffe6; /* Light green box */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #b3ffb3;
+        }
+        button, input {
+            margin-top: 10px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Day 19: Local Storage / Session Storage</h1>
+
+    <!-- Input section -->
+    <input type="text" id="userInput" placeholder="Enter your name">
+    <button id="saveBtn">Save to Local Storage</button>
+    <button id="loadBtn">Load from Local Storage</button>
+
+    <div class="output" id="jsOutput">Enter a name and save/load using Local Storage!</div>
+
+    <script>
+        // ======= Day 19 JS =======
+
+        const userInput = document.getElementById("userInput");
+        const saveBtn = document.getElementById("saveBtn");
+        const loadBtn = document.getElementById("loadBtn");
+        const outputDiv = document.getElementById("jsOutput");
+
+        // 1. Save data to Local Storage
+        saveBtn.addEventListener("click", () => {
+            const name = userInput.value.trim();
+            if(name === "") {
+                outputDiv.innerHTML = "Please enter a name to save!";
+                return;
+            }
+            localStorage.setItem("userName", name); // save key-value
+            outputDiv.innerHTML = `Saved "${name}" to Local Storage!`;
+            console.log("Saved to Local Storage:", name);
+            userInput.value = ""; // clear input
+        });
+
+        // 2. Load data from Local Storage
+        loadBtn.addEventListener("click", () => {
+            const storedName = localStorage.getItem("userName"); // retrieve value
+            if(storedName) {
+                outputDiv.innerHTML = `Loaded from Local Storage: ${storedName}`;
+                console.log("Loaded from Local Storage:", storedName);
+            } else {
+                outputDiv.innerHTML = "No data found in Local Storage!";
+            }
+        });
+
+        // ===== Optional: Session Storage =====
+        // sessionStorage.setItem("userName", name);
+        // sessionStorage.getItem("userName");
+
+    </script>
+
+</body>
+</html>
