@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2 JS Operators</title>
+    <style>
+        /* CSS: Day 2 styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff0f5; /* Light pink background */
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            background-color: #ffe6f0; /* Light pink box */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ffb3d9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Day 2: JavaScript Operators</h1>
+
+    <!-- Output section -->
+    <div class="output" id="jsOutput"></div>
+
+    <script>
+        // ======= Day 2 JS =======
+
+        // 1. Declare numbers for calculations
+        let a = 10;
+        let b = 3;
+
+        // 2. Arithmetic Operators
+        let addition = a + b;         // + adds numbers
+        let subtraction = a - b;      // - subtracts numbers
+        let multiplication = a * b;   // * multiplies numbers
+        let division = a / b;         // / divides numbers
+        let modulus = a % b;          // % remainder after division
+        let exponent = a ** b;        // ** a to the power of b
+
+        // 3. Comparison Operators
+        let isEqual = a == b;        // true if values equal
+        let isGreater = a > b;       // true if a > b
+        let isNotEqual = a != b;     // true if values not equal
+
+        // 4. Combine results into string for webpage
+        let output = "<b>Arithmetic Operations:</b><br>" +
+                     "Addition: " + addition + "<br>" +
+                     "Subtraction: " + subtraction + "<br>" +
+                     "Multiplication: " + multiplication + "<br>" +
+                     "Division: " + division + "<br>" +
+                     "Modulus: " + modulus + "<br>" +
+                     "Exponent: " + exponent + "<br><br>" +
+                     "<b>Comparison Operations:</b><br>" +
+                     "Is a equal to b? " + isEqual + "<br>" +
+                     "Is a greater than b? " + isGreater + "<br>" +
+                     "Is a not equal to b? " + isNotEqual;
+
+        // 5. Display on webpage
+        document.getElementById("jsOutput").innerHTML = output;
+
+        // 6. Console output for learning
+        console.log("Addition:", addition);
+        console.log("Subtraction:", subtraction);
+        console.log("Multiplication:", multiplication);
+        console.log("Division:", division);
+        console.log("Modulus:", modulus);
+        console.log("Exponent:", exponent);
+        console.log("Is a equal to b?", isEqual);
+        console.log("Is a greater than b?", isGreater);
+        console.log("Is a not equal to b?", isNotEqual);
+
+    </script>
+
+</body>
+</html>
