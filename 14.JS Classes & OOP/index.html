@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 14 JS Classes & OOP</title>
+    <style>
+        /* CSS: Day 14 styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fffaf0; /* Floral white background */
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            background-color: #fff0d9; /* Light orange box */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ffd9b3;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Day 14: Classes & OOP in JS</h1>
+
+    <!-- Output section -->
+    <div class="output" id="jsOutput">Click the button to see Classes & Objects!</div>
+
+    <button id="classBtn">Show Class Objects</button>
+
+    <script>
+        // ======= Day 14 JS =======
+
+        // 1. Define a class
+        class Person {
+            constructor(name, age, city) {
+                this.name = name; // property: name
+                this.age = age;   // property: age
+                this.city = city; // property: city
+            }
+
+            // 2. Method to display person info
+            getInfo() {
+                return `Name: ${this.name}, Age: ${this.age}, City: ${this.city}`;
+            }
+        }
+
+        // 3. Select output div and button
+        const outputDiv = document.getElementById("jsOutput");
+        const classBtn = document.getElementById("classBtn");
+
+        // 4. Function to create objects and show info
+        const showClassObjects = () => {
+            // Instantiate objects
+            const person1 = new Person("Priya", 22, "Coimbatore");
+            const person2 = new Person("Sowmya", 23, "Tirupur");
+
+            // Combine output
+            const output = person1.getInfo() + "<br>" + person2.getInfo();
+
+            // Display on webpage
+            outputDiv.innerHTML = output;
+
+            // Console debugging
+            console.log("Person1 Object:", person1);
+            console.log("Person2 Object:", person2);
+        };
+
+        // 5. Button click event
+        classBtn.addEventListener("click", showClassObjects);
+
+    </script>
+
+</body>
+</html>
