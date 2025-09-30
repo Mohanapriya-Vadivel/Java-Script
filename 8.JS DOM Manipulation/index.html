@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 8 JS DOM Manipulation</title>
+    <style>
+        /* CSS: Day 8 styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff5ee; /* Seashell background */
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            background-color: #ffe6d9; /* Light orange box */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ffb3a6;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Day 8: JavaScript DOM Manipulation</h1>
+
+    <!-- Output section -->
+    <div class="output" id="jsOutput">Original Text</div>
+
+    <!-- Buttons to interact -->
+    <button id="changeTextBtn">Change Text</button>
+    <button id="changeColorBtn">Change Color</button>
+
+    <script>
+        // ======= Day 8 JS =======
+
+        // 1. Get elements by ID
+        let outputDiv = document.getElementById("jsOutput");
+        let changeTextBtn = document.getElementById("changeTextBtn");
+        let changeColorBtn = document.getElementById("changeColorBtn");
+
+        // 2. Change text content when button clicked
+        changeTextBtn.addEventListener("click", function() {
+            outputDiv.innerHTML = "Text has been changed!"; 
+            // innerHTML changes content inside div
+        });
+
+        // 3. Change background color when button clicked
+        changeColorBtn.addEventListener("click", function() {
+            outputDiv.style.backgroundColor = "#d1ffd1"; 
+            // style.backgroundColor changes CSS background
+        });
+
+        // 4. You can also change font color dynamically
+        outputDiv.style.color = "#333"; // default font color
+
+        // 5. Console debugging
+        console.log("Original Text:", outputDiv.innerHTML);
+
+    </script>
+
+</body>
+</html>
