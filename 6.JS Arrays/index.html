@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 6 JS Arrays</title>
+    <style>
+        /* CSS: Day 6 styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fffaf0; /* Floral white background */
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            background-color: #fff0d9; /* Light orange box */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ffd9b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Day 6: JavaScript Arrays</h1>
+
+    <!-- Output section -->
+    <div class="output" id="jsOutput"></div>
+
+    <script>
+        // ======= Day 6 JS =======
+
+        // 1. Declare an array of numbers
+        let numbers = [10, 20, 30, 40, 50];
+
+        // 2. Declare an array of strings
+        let fruits = ["Apple", "Banana", "Mango", "Orange"];
+
+        // 3. Access array elements by index
+        let firstNumber = numbers[0]; // first element
+        let firstFruit = fruits[0];   // first element
+
+        // 4. Array operations
+        numbers.push(60);              // add element at end
+        fruits.unshift("Grapes");      // add element at start
+        numbers.pop();                 // remove last element
+        fruits.shift();                // remove first element
+
+        // 5. Loop through array elements using for loop
+        let numberList = "Numbers: ";
+        for (let i = 0; i < numbers.length; i++) {
+            numberList += numbers[i] + " ";
+        }
+
+        let fruitList = "<br>Fruits: ";
+        for (let i = 0; i < fruits.length; i++) {
+            fruitList += fruits[i] + " ";
+        }
+
+        // 6. Combine output for webpage
+        let output = "First Number: " + firstNumber + "<br>" +
+                     "First Fruit: " + firstFruit + "<br><br>" +
+                     numberList + fruitList;
+
+        // 7. Display on webpage
+        document.getElementById("jsOutput").innerHTML = output;
+
+        // 8. Console output for practice
+        console.log("Numbers Array:", numbers);
+        console.log("Fruits Array:", fruits);
+
+    </script>
+
+</body>
+</html>
