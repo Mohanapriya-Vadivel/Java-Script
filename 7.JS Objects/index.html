@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 7 JS Objects</title>
+    <style>
+        /* CSS: Day 7 styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Alice blue background */
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            background-color: #e6f7ff; /* Light blue box */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #b3e0ff;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Day 7: JavaScript Objects</h1>
+
+    <!-- Output section -->
+    <div class="output" id="jsOutput"></div>
+
+    <script>
+        // ======= Day 7 JS =======
+
+        // 1. Declare an object
+        let person = {
+            name: "Priya",
+            age: 22,
+            city: "Tirupur",
+            isDeveloper: true
+        };
+
+        // 2. Access object properties
+        let personName = person.name;       // Priya
+        let personAge = person.age;         // 22
+
+        // 3. Add a new property
+        person.hobbies = ["Singing", "Coding"];
+
+        // 4. Modify existing property
+        person.city = "Coimbatore";
+
+        // 5. Loop through object properties using for...in
+        let objectOutput = "Person Details:<br>";
+        for (let key in person) {
+            objectOutput += key + ": " + person[key] + "<br>";
+        }
+
+        // 6. Display on webpage
+        document.getElementById("jsOutput").innerHTML = objectOutput;
+
+        // 7. Console output
+        console.log("Person Object:", person);
+        console.log("Name:", personName);
+        console.log("Age:", personAge);
+
+    </script>
+
+</body>
+</html>
