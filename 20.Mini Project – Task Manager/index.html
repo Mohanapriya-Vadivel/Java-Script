@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 20 Mini Project - Task Manager</title>
+    <style>
+        /* CSS: Day 20 styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Alice blue background */
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        input, button {
+            padding: 5px 10px;
+            margin: 5px 0;
+        }
+        .output {
+            background-color: #e6f7ff; /* Light blue box */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #b3e0ff;
+        }
+        .task {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+            border-bottom: 1px solid #ccc;
+        }
+        .done {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Day 20 Mini Project: Task Manager</h1>
+
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button id="addTaskBtn">Add Task</button>
+    <div class="output" id="taskList">No tasks yet!</div>
+
+    <script>
+        // ======= Day 20 JS =======
+
+        // 1. Task class using OOP
+        class Task {
+            constructor(name) {
+                this.name = name;
+                this.done = false; // initially not done
+            }
+        }
+
+        const taskInput = document.getElementById("taskInput");
+        const addTaskBtn = document.getElementById("addTaskBtn");
+        const taskListDiv = document.getElementById("taskList");
+
+        // 2. Load tasks from Local Storage or initialize empty array
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+        // 3. Function to display tasks
+        const displayTasks = () => {
+            if(tasks.length === 0) {
+                taskListDiv.innerHTML = "No tasks yet!";
+                return;
+            }
+
+            // Clear previous output
+            taskListDiv.innerHTML = "";
+
+            tasks.forEach((task, index) => {
+                const taskDiv = document.createElement("div");
+                taskDiv.classList.add("task");
+                if(task.done) taskDiv.classList.add("done");
+
+                // Task name
+                const taskName = document.createElement("span");
+                taskName.innerText = task.name;
+
+                // Done button
+                const doneBtn = document.createElement("button");
+                doneBtn.innerText = task.done ? "Undo" : "Done";
+                doneBtn.addEventListener("click", () => {
+                    tasks[index].done = !tasks[index].done; // toggle done
+                    saveTasks();
+                    displayTasks();
+                });
+
+                // Delete button
+                const deleteBtn = document.createElement("button");
+                deleteBtn.innerText = "Delete";
+                deleteBtn.addEventListener("click", () => {
+                    tasks.splice(index, 1); // remove task
+                    saveTasks();
+                    displayTasks();
+                });
+
+                taskDiv.appendChild(taskName);
+                taskDiv.appendChild(doneBtn);
+                taskDiv.appendChild(deleteBtn);
+
+                taskListDiv.appendChild(taskDiv);
+            });
+        };
+
+        // 4. Function to save tasks to Local Storage
+        const saveTasks = () => {
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            console.log("Tasks saved:", tasks);
+        };
+
+        // 5. Add task button click event
+        addTaskBtn.addEventListener("click", () => {
+            const taskName = taskInput.value.trim();
+            if(taskName === "") {
+                alert("Please enter a task!");
+                return;
+            }
+
+            const newTask = new Task(taskName);
+            tasks.push(newTask);
+            saveTasks();
+            displayTasks();
+            taskInput.value = ""; // clear input
+        });
+
+        // 6. Display tasks on page load
+        displayTasks();
+
+    </script>
+
+</body>
+</html>
