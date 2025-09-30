@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4 JS Loops</title>
+    <style>
+        /* CSS: Day 4 styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0ffff; /* Light cyan background */
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            background-color: #ccf5ff; /* Light cyan box */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #99e6ff;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Day 4: JavaScript Loops</h1>
+
+    <!-- Output section -->
+    <div class="output" id="jsOutput"></div>
+
+    <script>
+        // ======= Day 4 JS =======
+
+        // 1. For loop: runs a fixed number of times
+        let forOutput = "For Loop (1 to 5):<br>";
+        for (let i = 1; i <= 5; i++) {
+            forOutput += i + " "; // add each number to string
+        }
+
+        // 2. While loop: runs while condition is true
+        let j = 1;
+        let whileOutput = "<br><br>While Loop (1 to 5):<br>";
+        while (j <= 5) {
+            whileOutput += j + " ";
+            j++; // increment to avoid infinite loop
+        }
+
+        // 3. Do-while loop: runs at least once
+        let k = 1;
+        let doWhileOutput = "<br><br>Do-While Loop (1 to 5):<br>";
+        do {
+            doWhileOutput += k + " ";
+            k++;
+        } while (k <= 5);
+
+        // 4. Combine all outputs for webpage
+        let output = forOutput + whileOutput + doWhileOutput;
+
+        // 5. Display on webpage
+        document.getElementById("jsOutput").innerHTML = output;
+
+        // 6. Console output
+        console.log("For Loop: 1 2 3 4 5");
+        console.log("While Loop: 1 2 3 4 5");
+        console.log("Do-While Loop: 1 2 3 4 5");
+
+    </script>
+
+</body>
+</html>
