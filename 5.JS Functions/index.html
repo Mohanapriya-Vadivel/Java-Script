@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5 JS Functions</title>
+    <style>
+        /* CSS: Day 5 styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0fff0; /* Honeydew background */
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            background-color: #e6ffe6; /* Light green box */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #b3ffb3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Day 5: JavaScript Functions</h1>
+
+    <!-- Output section -->
+    <div class="output" id="jsOutput"></div>
+
+    <script>
+        // ======= Day 5 JS =======
+
+        // 1. Function without parameters
+        function greet() {
+            return "Hello, Priya! Welcome to Day 5!";
+        }
+
+        // 2. Function with parameters
+        function addNumbers(a, b) {
+            return a + b; // returns sum of a and b
+        }
+
+        // 3. Function with multiple operations
+        function calculate(a, b) {
+            return "Addition: " + (a + b) + ", " +
+                   "Subtraction: " + (a - b) + ", " +
+                   "Multiplication: " + (a * b) + ", " +
+                   "Division: " + (a / b);
+        }
+
+        // 4. Call functions and store results
+        let greetMessage = greet();          // calls greet()
+        let sum = addNumbers(10, 5);         // calls addNumbers with 10, 5
+        let operations = calculate(10, 5);   // calls calculate with 10, 5
+
+        // 5. Combine all outputs for webpage
+        let output = greetMessage + "<br><br>" +
+                     "Sum (10 + 5): " + sum + "<br><br>" +
+                     "Operations: " + operations;
+
+        // 6. Display output on webpage
+        document.getElementById("jsOutput").innerHTML = output;
+
+        // 7. Console output
+        console.log(greetMessage);
+        console.log("Sum:", sum);
+        console.log("Operations:", operations);
+
+    </script>
+
+</body>
+</html>
