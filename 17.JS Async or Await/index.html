@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 17 JS Async/Await</title>
+    <style>
+        /* CSS: Day 17 styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Alice blue background */
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            background-color: #e6f7ff; /* Light blue box */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #b3e0ff;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Day 17: Async JS - async/await</h1>
+
+    <!-- Output section -->
+    <div class="output" id="jsOutput">Click the button to simulate async API call!</div>
+
+    <button id="asyncBtn">Run Async/Await Demo</button>
+
+    <script>
+        // ======= Day 17 JS =======
+
+        const outputDiv = document.getElementById("jsOutput");
+        const asyncBtn = document.getElementById("asyncBtn");
+
+        // 1. Function that returns a Promise
+        const simulateAPI = (success = true) => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if(success) {
+                        resolve("Async/Await: API call successful! Data loaded.");
+                    } else {
+                        reject("Async/Await: API call failed! Something went wrong.");
+                    }
+                }, 2000); // simulate 2 seconds delay
+            });
+        };
+
+        // 2. Async function to handle Promise
+        const runAsyncDemo = async () => {
+            outputDiv.innerHTML = "Loading...";
+
+            try {
+                const data = await simulateAPI(true); // wait for Promise to resolve
+                outputDiv.innerHTML = data;          // display result
+                console.log("Success:", data);
+            } catch(error) {
+                outputDiv.innerHTML = error;         // display error
+                console.log("Error:", error);
+            }
+        };
+
+        // 3. Button click event
+        asyncBtn.addEventListener("click", runAsyncDemo);
+
+    </script>
+
+</body>
+</html>
