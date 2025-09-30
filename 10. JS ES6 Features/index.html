@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 10 JS ES6 Features</title>
+    <style>
+        /* CSS: Day 10 styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff0f5; /* Lavender background */
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            background-color: #ffe6ff; /* Light lavender box */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ffb3ff;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Day 10: JavaScript ES6 Features</h1>
+
+    <!-- Output section -->
+    <div class="output" id="jsOutput">Click the button to see ES6 in action!</div>
+
+    <button id="showES6Btn">Show ES6 Example</button>
+
+    <script>
+        // ======= Day 10 JS =======
+
+        // 1. let and const
+        let name = "Priya";      // block-scoped variable, can change
+        const age = 22;           // constant, cannot change
+
+        // 2. Template literals
+        let greeting = `Hello, my name is ${name} and I am ${age} years old.`;
+        // Use backticks `` and ${variable} to embed variables
+
+        // 3. Arrow function
+        const add = (a, b) => a + b; 
+        // Short function: (parameters) => expression
+
+        // 4. Function to display ES6 examples
+        const showES6 = () => {
+            let sum = add(10, 5);
+            let output = greeting + "<br>" +
+                         "Sum using arrow function (10 + 5): " + sum;
+            document.getElementById("jsOutput").innerHTML = output;
+            console.log("Greeting:", greeting);
+            console.log("Sum:", sum);
+        };
+
+        // 5. Button click event to trigger ES6 function
+        document.getElementById("showES6Btn").addEventListener("click", showES6);
+
+    </script>
+
+</body>
+</html>
