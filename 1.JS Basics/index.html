@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1 JS Basics</title>
+    <style>
+        /* CSS: Basic styling for Day 1 project */
+        body {
+            font-family: Arial, sans-serif; /* Sets font style */
+            background-color: #f0f8ff; /* Light blue background */
+            margin: 20px; /* Space around content */
+        }
+        h1 {
+            color: #333; /* Dark gray heading */
+        }
+        .output {
+            background-color: #e6f7ff; /* Light blue box */
+            padding: 10px; /* Inner space */
+            margin: 10px 0; /* Space between elements */
+            border-radius: 5px; /* Rounded corners */
+            border: 1px solid #b3e0ff; /* Border color */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Day 1: JavaScript Basics</h1>
+
+    <!-- Output section where JS will show results -->
+    <div class="output" id="jsOutput"></div>
+
+    <script>
+        // ======= Day 1 JS =======
+
+        // 1. Variables
+        let name = "Priya"; // 'let' allows variable to change later
+        const age = 22;     // 'const' cannot be changed
+        var city = "Tirupur"; // 'var' is old style, function-scoped
+
+        // 2. Other Data Types
+        let isDeveloper = true; // Boolean type (true/false)
+        let score;              // undefined, no value yet
+        let hobbies = null;     // null means "no value"
+
+        // 3. Combine all info in one string
+        // Using + operator to join strings
+        let info = "Name: " + name + "<br>" +
+                   "Age: " + age + "<br>" +
+                   "City: " + city + "<br>" +
+                   "Developer? " + isDeveloper + "<br>" +
+                   "Score: " + score + "<br>" +
+                   "Hobbies: " + hobbies;
+
+        // 4. Display JS variables on the webpage
+        // getElementById("jsOutput") finds the div with id 'jsOutput'
+        // innerHTML sets its content to the info string
+        document.getElementById("jsOutput").innerHTML = info;
+
+        // 5. Console output (optional, for learning JS)
+        console.log("Name:", name);           // prints Name
+        console.log("Age:", age);             // prints Age
+        console.log("City:", city);           // prints City
+        console.log("Developer?", isDeveloper); // prints true/false
+        console.log("Score:", score);         // prints undefined
+        console.log("Hobbies:", hobbies);     // prints null
+    </script>
+
+</body>
+</html>
