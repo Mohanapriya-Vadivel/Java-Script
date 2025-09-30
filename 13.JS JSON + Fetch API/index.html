@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 13 JS JSON + Fetch API</title>
+    <style>
+        /* CSS: Day 13 styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Alice blue background */
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            background-color: #e6f7ff; /* Light blue box */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #b3e0ff;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Day 13: JSON + Fetch API</h1>
+
+    <!-- Output section -->
+    <div class="output" id="jsOutput">Click the button to load JSON data!</div>
+
+    <button id="fetchBtn">Load JSON Data</button>
+
+    <script>
+        // ======= Day 13 JS =======
+
+        // 1. Select output div and button
+        const outputDiv = document.getElementById("jsOutput");
+        const fetchBtn = document.getElementById("fetchBtn");
+
+        // 2. Sample JSON data (could also be fetched from a file or API)
+        const sampleData = [
+            { "name": "Priya", "age": 22, "city": "Coimbatore" },
+            { "name": "Sowmya", "age": 23, "city": "Tirupur" },
+            { "name": "Bhuvana", "age": 22, "city": "Coimbatore" }
+        ];
+
+        // 3. Function to simulate fetching JSON data
+        const loadJSONData = () => {
+            // In real scenario: fetch("data.json").then(res => res.json()).then(...)
+            
+            // Here we use sampleData directly
+            let output = "Users Info:<br>";
+            sampleData.forEach(user => {
+                output += `Name: ${user.name}, Age: ${user.age}, City: ${user.city}<br>`;
+            });
+
+            // Display on webpage
+            outputDiv.innerHTML = output;
+
+            // Console debugging
+            console.log("JSON Data:", sampleData);
+        };
+
+        // 4. Button click event to load JSON data
+        fetchBtn.addEventListener("click", loadJSONData);
+
+    </script>
+
+</body>
+</html>
