@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 16 JS Promises</title>
+    <style>
+        /* CSS: Day 16 styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5dc; /* Beige background */
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            background-color: #fffacd; /* Light yellow box */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #f0e68c;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Day 16: Async JS - Promises</h1>
+
+    <!-- Output section -->
+    <div class="output" id="jsOutput">Click the button to simulate API call using Promises!</div>
+
+    <button id="promiseBtn">Run Promise Demo</button>
+
+    <script>
+        // ======= Day 16 JS =======
+
+        const outputDiv = document.getElementById("jsOutput");
+        const promiseBtn = document.getElementById("promiseBtn");
+
+        // 1. Function that returns a Promise
+        const simulateAPI = (success = true) => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if(success) {
+                        resolve("API call successful! Data loaded.");
+                    } else {
+                        reject("API call failed! Something went wrong.");
+                    }
+                }, 2000); // simulate 2 seconds delay
+            });
+        };
+
+        // 2. Function to handle Promise
+        const runPromiseDemo = () => {
+            outputDiv.innerHTML = "Loading...";
+
+            // Call the Promise
+            simulateAPI(true)
+                .then(data => {
+                    outputDiv.innerHTML = data; // success
+                    console.log("Success:", data);
+                })
+                .catch(error => {
+                    outputDiv.innerHTML = error; // error
+                    console.log("Error:", error);
+                });
+        };
+
+        // 3. Button click event
+        promiseBtn.addEventListener("click", runPromiseDemo);
+
+    </script>
+
+</body>
+</html>
